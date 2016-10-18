@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @survivor.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @survivor.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @survivor.gender %>
+</p>
+
+<p>
+  <strong>Infected:</strong>
+  <%= @survivor.infected %>
+</p>
+
+<%= link_to 'Edit', edit_survivor_path(@survivor) %> |
+<%= link_to 'Back', survivors_path %>

@@ -1,0 +1,43 @@
+<%= form_for(survivor) do |f| %>
+  <% if survivor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(survivor.errors.count, "error") %> prohibited this survivor from being saved:</h2>
+
+      <ul>
+      <% survivor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= f.label :infected %>
+    <%= f.check_box :infected %>
+  </div>
+  <h3>itemns</h3>
+
+  <%= f.simple_fields_for :items do |item| %>
+      <%= render 'inventory_fields', f %>
+      <%= link_to_add_association 'add item', f, :item,  partial: 'survivors/inventory_fields'%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>

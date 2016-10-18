@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+
+development:
+  <<: *default
+  database: ZombieSurvival_development
+
+test:
+  <<: *default
+  database: ZombieSurvival_test
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ZombieSurvival_production
+  pool: 5
+  username: root
+  password: 
+  host: 127.0.0.1

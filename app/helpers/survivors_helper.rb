@@ -1,0 +1,2 @@
+module SurvivorsHelper
+end
