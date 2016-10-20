@@ -30,14 +30,16 @@
     <%= f.label :infected %>
     <%= f.check_box :infected %>
   </div>
-  <h3>itemns</h3>
 
-  <%= f.simple_fields_for :items do |item| %>
-      <%= render 'inventory_fields', f %>
-      <%= link_to_add_association 'add item', f, :item,  partial: 'survivors/inventory_fields'%>
+  <h3>items</h3>
+
+  <%= f.simple_fields_for :inventory do |x| %>
+      <%= render 'inventory_fields', f: x %>
+      <%= link_to_add_association 'add inventory', f, :inventory, partial: 'survivors/inventory_fields' %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>
 <% end %>

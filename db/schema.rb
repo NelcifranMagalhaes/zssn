@@ -13,9 +13,12 @@
 ActiveRecord::Schema.define(version: 20161017224948) do
 
   create_table "inventories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "survivor_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "survivor_id"
+    t.string  "item_one"
+    t.string  "item_two"
+    t.string  "item_three"
+    t.string  "item_four"
+    t.string  "timestamps"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

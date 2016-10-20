@@ -1,6 +1,8 @@
-  <%= f.input :name %>
-  <%= f.input :points %>
- 	 
-  <%= f.input :quant  %>
 
+   <%= f.association :inventory,
+                  collection: Inventory.all,
+                  include_blank: true,
+                  input_html: { class: 'chosen-select' }
+		%>
+ 	 
   <%= link_to_remove_association "remove item", f%>

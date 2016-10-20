@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-		belongs_to :inventory
+	belongs_to :inventory
 end

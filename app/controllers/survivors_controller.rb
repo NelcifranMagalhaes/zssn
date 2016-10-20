@@ -69,6 +69,6 @@ class SurvivorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survivor_params
-      params.require(:survivor).permit(:name, :age, :gender, :infected , inventory_attributes: [:id, :_destroy], items_attributes: [:id, :name, :quant, :_destroy])
+      params.require(:survivor).permit(:name, :age, :gender, :infected , inventory_attributes: [:id, :_destroy], inventory_attributes: [:id, :item_one, :item_two,:item_three,:item_four, :_destroy])
     end
 end
