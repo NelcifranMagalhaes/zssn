@@ -1,8 +1,1 @@
 
-   <%= f.association :items,
-                  collection: Item.all,
-                  include_blank: true,
-                  input_html: { class: 'chosen-select' }
-		%>
- 	 
-  <%= link_to_remove_association "remove item", f%>

@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :points
       t.integer :quant
-      t.integer :inventory_id
+      t.integer :survivor_id
 
       t.timestamps
     end
