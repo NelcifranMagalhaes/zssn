@@ -31,15 +31,70 @@
     <%= f.check_box :infected %>
   </div>
 
-  <h3>items</h3>
 
-  <%= f.simple_fields_for :inventory do |x| %>
-      <%= render 'inventory_fields', f: x %>
-      <%= link_to_add_association 'add inventory', f, :inventory, partial: 'survivors/inventory_fields' %>
+<h2>items</h2>
+
+ <%= f.fields_for :items do |room_category| %>
+
+
+ <div class="field">
+
+ <%= room_category.label :name %><br>
+
+ <%= room_category.text_field :name %>
+
+ </div>
+
+
+ <div class="field">
+
+ <%= room_category.label :quant %><br>
+
+ <%= room_category.text_field :quant %>
+
+ </div>
+
+<%= room_category.check_box :_destroy %>
+<%= room_category.label :_destroy, 'remove' %>
+
+
+<% end %>
+
+<h2>Location</h2>
+
+ <%= f.fields_for :location do |l| %>
+
+
+ <div class="field">
+
+ <%= l.label :latitude %><br>
+
+ <%= l.text_field :latitude %>
+
+ </div>
+
+<div class="field">
+
+ <%= l.label :longitude %><br>
+
+ <%= l.text_field :longitude %>
+
+ </div>
+
+<%= l.check_box :_destroy %>
+<%= l.label :_destroy, 'remove' %>
+
+
+<% end %>
+
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
-  
 <% end %>
-<% end %>
+
+
+
+ 
+

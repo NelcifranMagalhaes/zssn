@@ -4,8 +4,6 @@ class CreateLocations < ActiveRecord::Migration[5.0]
       t.string :latitude
       t.string :longitude
       t.string :survivor_id
-      t.string :integer
-
       t.timestamps
     end
   end

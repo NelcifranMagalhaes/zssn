@@ -15,10 +15,17 @@ class SurvivorsController < ApplicationController
   # GET /survivors/new
   def new
     @survivor = Survivor.new
+    2.times {@survivor.items.build}
+    @survivor.build_location
+
+
   end
 
   # GET /survivors/1/edit
   def edit
+    @survivor.items.build
+    @survivor.build_location
+
   end
 
   # POST /survivors
@@ -69,6 +76,6 @@ class SurvivorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survivor_params
-      params.require(:survivor).permit(:name, :age, :gender, :infected , inventory_attributes: [:id, :_destroy], inventory_attributes: [:id, :item_one, :item_two,:item_three,:item_four, :_destroy])
+      params.require(:survivor).permit(:name, :age, :gender, :infected , items_attributes: [:id, :name, :quant,:points, :_destroy], location_attributes:[:id,:longitude,:latitude,:_destroy], trade_attributes:[:id,:name,:points,:_destroy] )
     end
 end
