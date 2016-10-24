@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+//= require chosen-jquery
+//= require choosenFeito
+

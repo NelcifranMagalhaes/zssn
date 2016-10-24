@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20161021145442) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "points"
     t.integer  "quant"
     t.integer  "survivor_id"
     t.datetime "created_at",  null: false
