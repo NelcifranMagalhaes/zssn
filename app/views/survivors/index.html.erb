@@ -9,6 +9,8 @@
       <th>Age</th>
       <th>Gender</th>
       <th>Infected</th>
+      <th>itens</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +22,12 @@
         <td><%= survivor.age %></td>
         <td><%= survivor.gender %></td>
         <td><%= survivor.infected %></td>
+
+          <% survivor.items.each do |x| %>
+            <td> <%=  x.name%></td>
+            <% end %>
+
+
         <td><%= link_to 'Show', survivor %></td>
         <td><%= link_to 'Edit', edit_survivor_path(survivor) %></td>
         <td><%= link_to 'Destroy', survivor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
