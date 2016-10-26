@@ -15,7 +15,7 @@ class Survivor < ApplicationRecord
 			
 			errors[:base] << 'nem tem essa fruta'
 			
-		end
+	end
 
 	end
 

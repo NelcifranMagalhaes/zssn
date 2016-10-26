@@ -1,6 +1,60 @@
 <h1>Editing Survivor</h1>
 
-<%= render 'form', survivor: @survivor %>
+<%= form_for(@survivor) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= f.label :infected %>
+    <%= f.check_box :infected %>
+  </div>
+
+
+<h2>Location</h2>
+
+  <%= f.fields_for :location do |l| %>
+
+<div class="field">
+
+  <%= l.label :latitude %><br>
+
+  <%= l.text_field :latitude %>
+
+</div>
+
+<div class="field">
+
+  <%= l.label :longitude %><br>
+
+  <%= l.text_field :longitude %>
+
+</div>
+
+<%= l.check_box :_destroy %>
+<%= l.label :_destroy, 'remove' %>
+
+<% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @survivor %> |
 <%= link_to 'Back', survivors_path %>

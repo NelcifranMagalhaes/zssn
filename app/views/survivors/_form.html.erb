@@ -1,10 +1,10 @@
 <%= form_for(survivor) do |f| %>
   <% if survivor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(survivor.errors.count, "error") %> prohibited this survivor from being saved:</h2>
+      <h2><%= pluralize(@survivor.errors.count, "error") %> prohibited this survivor from being saved:</h2>
 
       <ul>
-      <% survivor.errors.full_messages.each do |message| %>
+      <% @survivor.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -56,7 +56,6 @@
 
 <%= room_category.check_box :_destroy %>
 <%= room_category.label :_destroy, 'remove' %>
-
 
 <% end %>
 
