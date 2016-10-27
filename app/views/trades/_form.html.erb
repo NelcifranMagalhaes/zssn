@@ -1,48 +1,45 @@
-<%= form_for(:survivor) do |f| %>
+<%= simple_form_for :trades do |f| %>
 
-	<%= f.select :name,
-	  Survivor.all.map { |f| [f.name, f.id] },
-	               { include_blank: true },
-	               { class: 'chosen-select'}
-	%>
+<h2>First Survivor</h2>
 
+<%= f.simple_fields_for :survivor do |v| %>
+<%= render 'survivor_fields', :f => v %>
 <% end %>
 
-<h2>Items</h2>
 
-<%= form_for(:trade) do |f| %>
-
-	<%= f.select :name,
-	  Trade.all.map { |f| [f.name, f.id] },
-	               { include_blank: true },
-	               { class: 'chosen-select'}
-	%>
-
-<% end %>
-
-<br>
-
-<h2>second Survivor</h2>
-
-<%= form_for(:survivor) do |f| %>
-
-	<%= f.select :name,
-	  Survivor.all.map { |f| [f.name, f.id] },
-	               { include_blank: true },
-	               { class: 'chosen-select'}
-	%>
-
-<% end %>
 <br>
 
 <h2>Items</h2>
 
-<%= form_for(:items) do |f| %>
-
-	<%= f.select :name,
-	  Item.all.map { |f| [f.name, f.id] },
-	               { include_blank: true },
-	               { class: 'chosen-select'}
-	%>
-
+<%= f.simple_fields_for :trades do |v| %>
+<%= render 'item_fields', :f => v %>
 <% end %>
+
+<%= f.simple_fields_for :quant do |v| %>
+<%= render 'quant_field', :f => v %>
+<% end %>
+
+<br>
+
+<h2>Second Survivor</h2>
+
+<%= f.simple_fields_for :survivor do |v| %>
+<%= render 'survivor_fields', :f => v %>
+<% end %>
+
+<br>
+
+<h2>Items</h2>
+
+<%= f.simple_fields_for :trades do |v| %>
+<%= render 'item_fields', :f => v %>
+<% end %>
+
+<%= f.simple_fields_for :quant do |v| %>
+<%= render 'quant_field', :f => v %>
+<% end %>
+
+
+<%= f.button :submit %>
+
+<% end %>	
