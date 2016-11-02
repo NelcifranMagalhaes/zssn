@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-item = Trade.create( [{name: 'Water',points: 4} ,{ name: 'Food',points:3 } ,{ name: 'Medication' ,points:2} ,{ name: 'Ammunition', points:1}])
+item = See.create( [{name: 'Water',points: 4} ,{ name: 'Food',points:3 } ,{ name: 'Medication' ,points:2} ,{ name: 'Ammunition', points:1}])

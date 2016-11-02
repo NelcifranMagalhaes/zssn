@@ -1,6 +1,6 @@
 
 	<%= f.select :name,
-	  Trade.all.map { |f| [f.name, f.id] },
+	  See.all.map { |f| [f.name, f.id] },
 	               { include_blank: true },
 	               { class: 'chosen-select'}
 	%>

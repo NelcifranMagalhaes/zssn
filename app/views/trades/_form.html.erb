@@ -1,4 +1,4 @@
-<%= simple_form_for :trades do |f| %>
+<%= simple_form_for :sees do |f| %>
 
 <h2>First Survivor</h2>
 
@@ -11,7 +11,7 @@
 
 <h2>Items</h2>
 
-<%= f.simple_fields_for :trades do |v| %>
+<%= f.simple_fields_for :sees do |v| %>
 <%= render 'item_fields', :f => v %>
 <% end %>
 
@@ -31,7 +31,7 @@
 
 <h2>Items</h2>
 
-<%= f.simple_fields_for :trades do |v| %>
+<%= f.simple_fields_for :sees do |v| %>
 <%= render 'item_fields', :f => v %>
 <% end %>
 

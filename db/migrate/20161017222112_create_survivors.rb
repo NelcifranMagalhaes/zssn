@@ -5,6 +5,7 @@ class CreateSurvivors < ActiveRecord::Migration[5.0]
       t.integer :age
       t.string :gender
       t.boolean :infected
+      t.integer :trade_id
 
       t.timestamps
     end
