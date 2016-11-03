@@ -4,15 +4,9 @@ class TradesController < ApplicationController
     	@survivors = Survivor.all
 	end
 
-
 	def new
 		@trade = Trade.new
-
-  	end
-
-  	def create
-
-  	end
+  end
 
 
 def create
@@ -27,11 +21,9 @@ def create
         format.json { render json: @trade.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
-
-
-  	private
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_trade
       @trade = Trade.find(params[:id])

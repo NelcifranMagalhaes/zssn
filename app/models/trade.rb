@@ -1,3 +1,3 @@
 class Trade < ApplicationRecord
-	has_many :survivors
+	has_and_belongs_to_many :survivors
 end
