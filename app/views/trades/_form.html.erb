@@ -1,45 +1,13 @@
-<%= simple_form_for :trades do |f| %>
 
-<h2>First Survivor</h2>
 
-<%= f.simple_fields_for :survivor do |v| %>
-<%= render 'survivor_fields', :f => v %>
+<%= form_for :trades, url: trades_path do |f| %>
+  Survivor 1: <%= f.text_field :name_survivor_1 %><br/>
+  Item1: <%= f.text_field :item_survivor_1 %><br/>
+  Quantidade: <%= f.text_field :quantidade_survivor_1 %><br/>
+
+  Survivor 2: <%= f.text_field :name_survivor_2 %><br/>
+  Item 2: <%= f.text_field :item_survivor_2 %><br/>
+  Quantidade: <%= f.text_field :quantidade_survivor_2 %><br/>
+
+  <%= f.submit %>
 <% end %>
-
-
-<br>
-
-<h2>Items</h2>
-
-<%= f.simple_fields_for :sees do |v| %>
-<%= render 'item_fields', :f => v %>
-<% end %>
-
-<%= f.simple_fields_for :quant do |v| %>
-<%= render 'quant_field', :f => v %>
-<% end %>
-
-<br>
-
-<h2>Second Survivor</h2>
-
-<%= f.simple_fields_for :survivor do |v| %>
-<%= render 'survivor_fields', :f => v %>
-<% end %>
-
-<br>
-
-<h2>Items</h2>
-
-<%= f.simple_fields_for :sees do |v| %>
-<%= render 'item_fields', :f => v %>
-<% end %>
-
-<%= f.simple_fields_for :quant do |v| %>
-<%= render 'quant_field', :f => v %>
-<% end %>
-
-
-<%= f.button :submit %>
-
-<% end %>	

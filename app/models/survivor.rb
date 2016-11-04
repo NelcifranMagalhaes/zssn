@@ -2,7 +2,6 @@ class Survivor < ApplicationRecord
 	
 	has_many :items, dependent: :destroy
 	has_one :location, dependent: :destroy
-	has_and_belongs_to_many :trade, optional: true
 	
 	accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :location, reject_if: :all_blank, allow_destroy: true

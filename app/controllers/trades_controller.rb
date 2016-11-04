@@ -1,16 +1,32 @@
 class TradesController < ApplicationController
+  before_action :set_trade, only: [:show, :edit, :update, :destroy]
 
 	def index
-    	@survivors = Survivor.all
+    	@trades = Trade.all
+
 	end
 
 	def new
-		@trade = Trade.new
+    @trades = Trade.new
   end
 
+  def show
+  end
 
 def create
+
     @trade = Trade.new(trade_params)
+
+    if params[:trades][:name_survivor_1].blank? or params[:trades][:name_survivor_2].blank? 
+      #parei aqui
+      
+    end
+
+    survivor_1 = params[:trades][:name_survivor_1]
+
+    @survivor = Survivor.where(name: survivor_1)
+
+    puts @survivor
 
     respond_to do |format|
       if @trade.save
@@ -32,7 +48,7 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_params
 
-      params.require(:trade).permit(:id)
+      params.require(:trades).permit(:id,:name_survivor_1,:name_survivor_2,:item_survivor_1,:item_survivor_2,:quantidade_survivor_1,:quantidade_survivor_2)
 
     end
 

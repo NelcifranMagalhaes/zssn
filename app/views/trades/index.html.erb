@@ -2,7 +2,34 @@
 
 <h1>Trade</h1>
 
-<h3>Ainda não tem nada</h3>
-<br> 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Item</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <tr>
+        <td><%= trade.name_survivor_1 %></td>
+        <td><%= trade.item_survivor_1 %></td>
+        <td><%= trade.quantidade_survivor_1 %></td>
+
+        <td><%= trade.name_survivor_2 %></td>
+        <td><%= trade.item_survivor_2 %></td>
+        <td><%= trade.quantidade_survivor_2 %></td>
+      
+        <td><%= link_to 'Show', trade %></td>
+        <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+        <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 
 <%= link_to 'New Survivor', new_survivor_path %>

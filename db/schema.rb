@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20161103161015) do
   end
 
   create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name_survivor_1"
+    t.string "name_survivor_2"
+    t.string "item_survivor_1"
+    t.string "item_survivor_2"
+    t.string "quantidade_survivor_1"
+    t.string "quantidade_survivor_2"
   end
 
 end
