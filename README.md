@@ -5,20 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
-* System dependencies
+* Rake db:create && rake db:migrate
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* rake db:seed
