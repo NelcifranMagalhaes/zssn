@@ -1,8 +1,21 @@
 
 
 <%= form_for :trades, url: trades_path do |f| %>
+
+<% if @trade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+      <% @trade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   Survivor 1: <%= f.text_field :name_survivor_1 %><br/>
-  Item1: <%= f.text_field :item_survivor_1 %><br/>
+  Item 1: <%= f.text_field :item_survivor_1 %><br/>
   Quantidade: <%= f.text_field :quantidade_survivor_1 %><br/>
 
   Survivor 2: <%= f.text_field :name_survivor_2 %><br/>
