@@ -28,9 +28,35 @@ class SurvivorsController < ApplicationController
 
   end
 
+  #Esse mmetodo roda toda vez que eu insiro um novo Survivor
+  def pseudo_job
+    @total =0
+    @survivors = Survivor.all
+
+    @survivors.each do |s|
+      if s.infected
+
+        @total = @total+1
+      end
+
+    end
+
+    if @total >=3
+      @survivors.each do |s|
+      s.update(infected: true)
+
+      end
+    else
+      puts"tem menos de 3"  
+
+    end
+
+  end  
+
   # POST /survivors
   # POST /survivors.json
   def create
+
     @survivor = Survivor.new(survivor_params)
 
     respond_to do |format|
@@ -42,6 +68,9 @@ class SurvivorsController < ApplicationController
         format.json { render json: @survivor.errors, status: :unprocessable_entity }
       end
     end
+
+    pseudo_job()
+
   end
 
   # PATCH/PUT /survivors/1

@@ -1,0 +1,4 @@
+contamination_job_worker:
+  every: ["30s"]
+  class: "ContaminationJobWorker"
+  description: "Exemplo de job agendado"

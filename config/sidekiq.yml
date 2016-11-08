@@ -1,0 +1,8 @@
+:concurrency: 2
+  :logfile: ./log/sidekiq.log
+  :verbose: true
+  :queues:
+    - [critical, 4]
+    - [important, 3]
+    - [other, 2]
+    - [default, 1]
