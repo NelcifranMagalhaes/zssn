@@ -13,6 +13,17 @@ class TradesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def destroy
+    @trade.destroy
+    respond_to do |format|
+      format.html { redirect_to trades_url, notice: 'Trade was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
 def create
 
     @trade = Trade.new(trade_params)
@@ -57,7 +68,6 @@ def create
               end
 
             
-
             if @survivor_two.items.find_by(name: @item_one.name).blank?#nao tem o item do survivor_1
 
               @item_criado_two = Item.new(name: @item_one.name, quant: @quantidade_survivor_1_tela, survivor_id: @survivor_two.id)
@@ -73,8 +83,7 @@ def create
 
               end
 
-             
-
+            
             end
 
 
@@ -93,7 +102,7 @@ def create
         puts "Alguém tá trocando mais do que tem!!"
       end
 
-     
+     #salvando a trade
     respond_to do |format|
       if @trade.save
         format.html { redirect_to @trade, notice: 'Trade was successfully created.' }
@@ -103,22 +112,11 @@ def create
         format.json { render json: @trade.errors, status: :unprocessable_entity }
       end
     end
-
-        
       end
-
-
-
 end
 
 
- def destroy
-    @trade.destroy
-    respond_to do |format|
-      format.html { redirect_to trades_url, notice: 'Trade was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+ 
 
 
   private

@@ -4,7 +4,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: root  
+  password:   
   socket: /var/run/mysqld/mysqld.sock
 
 
@@ -23,5 +23,5 @@ production:
   database: ZombieSurvival_production
   pool: 5
   username: root
-  password: root
+  password: 
   host: 127.0.0.1
