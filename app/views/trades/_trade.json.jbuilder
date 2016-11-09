@@ -1,0 +1,2 @@
+json.extract! trade, :id, :name_survivor_1, :name_survivor_2, :item_survivor_1, :item_survivor_2, :quantidade_survivor_1, :quantidade_survivor_2, :created_at, :updated_at
+json.url trade_url(trade, format: :json)

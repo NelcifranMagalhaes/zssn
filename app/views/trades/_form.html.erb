@@ -1,26 +1,18 @@
+<%= simple_form_for(@trade) do |f| %>
+  <%= f.error_notification %>
 
+  <div class="form-inputs">
+  
+    <%= f.input :name_survivor_1 %>
+    <%= f.input :item_survivor_1 %>
+    <%= f.input :quantidade_survivor_1 %>
 
-<%= form_for :trades, url: trades_path do |f| %>
+    <%= f.input :name_survivor_2 %>
+    <%= f.input :item_survivor_2 %>
+    <%= f.input :quantidade_survivor_2 %>
+  </div>
 
-<% if @trade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
-
-      <ul>
-      <% @trade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  Survivor 1: <%= f.text_field :name_survivor_1 %><br/>
-  Item 1: <%= f.text_field :item_survivor_1 %><br/>
-  Quantidade: <%= f.text_field :quantidade_survivor_1 %><br/>
-
-  Survivor 2: <%= f.text_field :name_survivor_2 %><br/>
-  Item 2: <%= f.text_field :item_survivor_2 %><br/>
-  Quantidade: <%= f.text_field :quantidade_survivor_2 %><br/>
-
-  <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>

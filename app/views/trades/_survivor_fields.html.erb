@@ -1,7 +1,0 @@
-
-	<%= f.select :name,
-	  Survivor.all.map { |f| [f.name, f.id] },
-	               { include_blank: true },
-	               { class: 'chosen-select'}
-	%>
-

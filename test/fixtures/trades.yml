@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_survivor_1: MyString
+  name_survivor_2: MyString
+  item_survivor_1: MyString
+  item_survivor_2: MyString
+  quantidade_survivor_1: 1
+  quantidade_survivor_2: 1
+
+two:
+  name_survivor_1: MyString
+  name_survivor_2: MyString
+  item_survivor_1: MyString
+  item_survivor_2: MyString
+  quantidade_survivor_1: 1
+  quantidade_survivor_2: 1

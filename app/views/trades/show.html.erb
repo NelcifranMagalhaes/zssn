@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name survivor 1:</strong>
   <%= @trade.name_survivor_1 %>
 </p>
 
 <p>
-  <strong>Item:</strong>
-  <%= @trade.item_survivor_1 %>
-</p>
-
-<p>
-  <strong>Quantidade:</strong>
-  <%= @trade.quantidade_survivor_1 %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong>Name survivor 2:</strong>
   <%= @trade.name_survivor_2 %>
 </p>
 
 <p>
-  <strong>Item:</strong>
+  <strong>Item survivor 1:</strong>
+  <%= @trade.item_survivor_1 %>
+</p>
+
+<p>
+  <strong>Item survivor 2:</strong>
   <%= @trade.item_survivor_2 %>
 </p>
 
 <p>
-  <strong>Quantidade:</strong>
+  <strong>Quantidade survivor 1:</strong>
+  <%= @trade.quantidade_survivor_1 %>
+</p>
+
+<p>
+  <strong>Quantidade survivor 2:</strong>
   <%= @trade.quantidade_survivor_2 %>
 </p>
 
-
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
 <%= link_to 'Back', trades_path %>

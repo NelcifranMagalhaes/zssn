@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101141212) do
+ActiveRecord::Schema.define(version: 20161109145225) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -38,18 +38,19 @@ ActiveRecord::Schema.define(version: 20161101141212) do
     t.integer  "age"
     t.string   "gender"
     t.boolean  "infected"
-    t.integer  "trade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name_survivor_1"
-    t.string "name_survivor_2"
-    t.string "item_survivor_1"
-    t.string "item_survivor_2"
-    t.string "quantidade_survivor_1"
-    t.string "quantidade_survivor_2"
+    t.string   "name_survivor_1"
+    t.string   "name_survivor_2"
+    t.string   "item_survivor_1"
+    t.string   "item_survivor_2"
+    t.integer  "quantidade_survivor_1"
+    t.integer  "quantidade_survivor_2"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
