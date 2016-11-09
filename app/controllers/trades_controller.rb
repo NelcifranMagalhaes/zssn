@@ -37,10 +37,7 @@ class TradesController < ApplicationController
     @quantidade_survivor_1_tela = Integer(params[:trade][:quantidade_survivor_1])
     @quantidade_survivor_2_tela = Integer(params[:trade][:quantidade_survivor_2])
    
-    if @survivor_one.infected or @survivor_two.infected
-          puts "Guys,one of them is dead,don't trade with him."
 
-    else
 
       if @item_one.quant >=  @quantidade_survivor_1_tela && @item_two.quant >=  @quantidade_survivor_2_tela #Testando se ele tá trocando mais do que tem
         @pontos_item_one = @quantidade_survivor_1_tela * See.find_by(name: @item_one.name).points
@@ -93,7 +90,7 @@ class TradesController < ApplicationController
           #format.html {notice: 'não dá pra trocar,as trocas tem de ser equivalentes' }
           #flash[:error] = "não dá pra trocar,as trocas tem de ser equivalentes"
           puts "não dá pra trocar,as trocas tem de ser equivalentes"
-          
+
         end
 
       else
@@ -104,7 +101,6 @@ class TradesController < ApplicationController
 
 
       end
-        end
 
       respond_to do |format|
       if @trade.save
