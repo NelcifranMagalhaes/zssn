@@ -1,7 +1,18 @@
 <%= simple_form_for(@trade) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <% if trade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+      <% @trade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--   <div class="form-inputs">
   
     <%= f.input :name_survivor_1 %>
     <%= f.input :item_survivor_1 %>
@@ -10,9 +21,43 @@
     <%= f.input :name_survivor_2 %>
     <%= f.input :item_survivor_2 %>
     <%= f.input :quantidade_survivor_2 %>
+  </div> -->
+
+  <div class="form-inputs">
+
+    <%= f.select :name_survivor_1,
+    Survivor.all.map { |f| [f.name, f.id] },
+                { include_blank: true },
+                { class: 'chosen-select'}%>
+
+
+    <%= f.select :item_survivor_1,
+      See.all.map { |f| [f.name, f.id] },
+                  { include_blank: true },
+                  { class: 'chosen-select'}%>
+
+    <%= f.input :quantidade_survivor_1 %>
+
+
+
+    <%= f.select :name_survivor_2,
+      Survivor.all.map { |f| [f.name, f.id] },
+                { include_blank: true },
+                { class: 'chosen-select'}%>
+
+
+    <%= f.select :item_survivor_2,
+      See.all.map { |f| [f.name, f.id] },
+                  { include_blank: true },
+                  { class: 'chosen-select'}%>
+
+    <%= f.input :quantidade_survivor_2 %>
+
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
 <% end %>

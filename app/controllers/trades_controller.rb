@@ -25,29 +25,30 @@ class TradesController < ApplicationController
   # POST /trades.json
   def create
     @trade = Trade.new(trade_params)
+
     if @trade.valid?
-      
-    @survivor_one = Survivor.find_by(name: params[:trade][:name_survivor_1])
-    @survivor_two = Survivor.find_by(name: params[:trade][:name_survivor_2])
+    #Achando os caras que sao selecionados na tela  
+    @survivor_one = Survivor.find_by(id: params[:trade][:name_survivor_1])
+    @survivor_two = Survivor.find_by(id: params[:trade][:name_survivor_2])
+    
+    #o nome dos itens que vem da tela,eles veem com o id da tabela See
+    @item_tela_1 = See.find_by(id: params[:trade][:item_survivor_1])
+    @item_tela_2 = See.find_by(id: params[:trade][:item_survivor_2])
 
+    #pego o nome dos itens da tela e verifico se tem na lista de itens do survivor
+    @item_one = @survivor_one.items.find_by(name: @item_tela_1.name)
+    @item_two = @survivor_two.items.find_by(name:  @item_tela_2.name)
 
-    @item_one = @survivor_one.items.find_by(name: params[:trade][:item_survivor_1])
-    @item_two = @survivor_two.items.find_by(name: params[:trade][:item_survivor_2])
-
+    #Quantidade vindas da tela para cada item
     @quantidade_survivor_1_tela = Integer(params[:trade][:quantidade_survivor_1])
     @quantidade_survivor_2_tela = Integer(params[:trade][:quantidade_survivor_2])
    
-
 
       if @item_one.quant >=  @quantidade_survivor_1_tela && @item_two.quant >=  @quantidade_survivor_2_tela #Testando se ele tá trocando mais do que tem
         @pontos_item_one = @quantidade_survivor_1_tela * See.find_by(name: @item_one.name).points
         @pontos_item_two = @quantidade_survivor_2_tela * See.find_by(name: @item_two.name).points
 
-        if @pontos_item_one == @pontos_item_two #Testando se os pontos são iguais!
-
-          puts "Well,trade is ok!!"
-          #fazer a troca aqui
-          
+       
           if @survivor_one.items.find_by(name: @item_two.name).blank? #nao tem o item do survivor_2
 
             @item_criado_one = Item.new(name: @item_two.name, quant: @quantidade_survivor_2_tela, survivor_id: @survivor_one.id)
@@ -74,24 +75,22 @@ class TradesController < ApplicationController
               if @item_one.quant - @quantidade_survivor_1_tela == 0
                   @item_one.destroy #se o resultado for zero,deleto o item
 
-                else
+              else
                   @item_one.update(quant: @item_one.quant - @quantidade_survivor_1_tela)
 
               end
 
+            else
+              @item_two.update(quant: @item_two.quant + @quantidade_survivor_1_tela)
             
             end
 
-
+          else
+            
+              @item_one.update(quant: @item_one.quant + @quantidade_survivor_2_tela)
           end
 
-        else
 
-          #format.html {notice: 'não dá pra trocar,as trocas tem de ser equivalentes' }
-          #flash[:error] = "não dá pra trocar,as trocas tem de ser equivalentes"
-          puts "não dá pra trocar,as trocas tem de ser equivalentes"
-
-        end
 
       else
         #format.html {'Alguém tá trocando mais do que tem!!' }
