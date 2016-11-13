@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 item = See.create( [{name: 'Water',points: 4} ,{ name: 'Food',points:3 } ,{ name: 'Medication' ,points:2} ,{ name: 'Ammunition', points:1}])
+user = Survivor.create([{id:1,name: 'Rick',age: 35,gender: 'Masculino',infected: false},{id:2,name: 'Carol',age: 25,gender: 'Feminino',infected: false}])
+item = Item.create([{name: 'Food',quant: 5,survivor_id:1},{name: 'Medication',quant: 15,survivor_id:1},{name: 'Ammunition',quant: 10,survivor_id:2}])
