@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 item = See.create( [{name: 'Water',points: 4} ,{ name: 'Food',points:3 } ,{ name: 'Medication' ,points:2} ,{ name: 'Ammunition', points:1}])
-user = Survivor.create([{id:1,name: 'Rick',age: 35,gender: 'Masculino',infected: false},{id:2,name: 'Carol',age: 25,gender: 'Feminino',infected: false}])
-item = Item.create([{name: 'Food',quant: 5,survivor_id:1},{name: 'Medication',quant: 15,survivor_id:1},{name: 'Ammunition',quant: 10,survivor_id:2}])
+user = Survivor.create([{id:1,name: 'Rick',age: 35,gender: 'Masculino',infected: false},{id:2,name: 'Carol',age: 25,gender: 'Feminino',infected: false},{id:3,name: 'Virgil',age: 25,gender: 'Masculino',infected: true},{id:4,name: 'Marie',age: 14,gender: 'Feminino',infected: true}])
+item = Item.create([{name: 'Food',quant: 5,survivor_id:1},{name: 'Medication',quant: 15,survivor_id:1},{name: 'Ammunition',quant: 10,survivor_id:2},{name: 'Water',quant: 5,survivor_id:3},{name: 'Medication',quant: 10,survivor_id:4}])
+location = Location.create([{latitude: '15',longitude: '2',survivor_id: 1},{latitude: '8',longitude: '18',survivor_id: 2},{latitude: '8',longitude: '30',survivor_id: 3},{latitude: '70',longitude: '12',survivor_id: 4}])

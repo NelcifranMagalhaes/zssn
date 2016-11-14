@@ -28,11 +28,14 @@ class SurvivorsController < ApplicationController
 
   end
 
-  #Esse mmetodo roda toda vez que eu insiro um novo Survivor
+#Esse mmetodo roda toda vez que eu insiro um novo Survivor
+#Se ouver 3 ou mais survivors infectados todos se infectam
   def pseudo_job
     @total =0
     @survivors = Survivor.all
 
+  if @survivors.present?
+      
     @survivors.each do |s|
       if s.infected
 
@@ -46,13 +49,17 @@ class SurvivorsController < ApplicationController
       s.update(infected: true)
 
       end
-    else
-      puts"tem menos de 3"  
-
+   else
+    puts "Menos de 3"
     end
+    
+  else
+
+    puts "Tem ngm!!!"
+  end
+
 
   end  
-
   # POST /survivors
   # POST /survivors.json
   def create
@@ -69,7 +76,7 @@ class SurvivorsController < ApplicationController
       end
     end
 
-    pseudo_job()
+    pseudo_job()#atualizando as pessoas infectadas
 
   end
 

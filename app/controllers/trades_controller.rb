@@ -21,6 +21,8 @@ class TradesController < ApplicationController
   def edit
   end
 
+
+
   # POST /trades
   # POST /trades.json
   def create
@@ -42,8 +44,40 @@ class TradesController < ApplicationController
     #Quantidade vindas da tela para cada item
     @quantidade_survivor_1_tela = Integer(params[:trade][:quantidade_survivor_1])
     @quantidade_survivor_2_tela = Integer(params[:trade][:quantidade_survivor_2])
-    
+    #pontos dos items de cada user
+    @pontos_item_one = @quantidade_survivor_1_tela * See.find_by(name: @item_one.name).points
+    @pontos_item_two = @quantidade_survivor_2_tela * See.find_by(name: @item_two.name).points
+
+    if @survivor_one.items.find_by(name: @item_two.name).blank? #nao tem o item do survivor_2
+      
+      @item_two.update(quant: @item_two.quant - @quantidade_survivor_2_tela)#subtraio do segundo survivor a quantidade da troca
+      #crio um novo item para o primeiro survivor
+      @item_criado_one = Item.new(name: @item_two.name, quant: @quantidade_survivor_2_tela, survivor_id: @survivor_one.id)
+      @item_criado_one.save
+
+    else
+      @item_two.update(quant: @item_two.quant - @quantidade_survivor_2_tela)#subtraio do segundo survivor a quantidade da troca
+      @item_one.update(quant: @item_one.quant + @quantidade_survivor_2_tela)# acrescento no primeiro survivor a quantidade da troca
+
     end
+
+    if @survivor_two.items.find_by(name: @item_one.name).blank?#nao tem o item do survivor_1
+
+      @item_one.update(quant: @item_one.quant - @quantidade_survivor_1_tela)#subtraio do primeiro survivor a quantidade da troca
+
+      #Crio um novo item para o survivor 2,ja que ele nao possui
+      @item_criado_two = Item.new(name: @item_one.name, quant: @quantidade_survivor_1_tela, survivor_id: @survivor_two.id)
+      @item_criado_two.save
+
+    else
+      @item_one.update(quant: @item_one.quant - @quantidade_survivor_1_tela)
+      @item_two.update(quant: @item_two.quant + @quantidade_survivor_1_tela)
+
+    end
+
+    
+    end#valido
+
 
       respond_to do |format|
       if @trade.save
