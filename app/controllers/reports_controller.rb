@@ -3,8 +3,9 @@ class ReportsController < ApplicationController
 	def index
 		@survivors_i = Survivor.where(infected:  true).count
 		@survivors_ni = Survivor.where(infected:  false).count
-		@survivors_count =Survivor.all.count
-
+		@survivors_count = Survivor.all.count
+		@survivors_i = (@survivors_i / @survivors_count).to_f
+		@survivors_ni = (@survivors_ni/ @survivors_count).to_f
 		@water =count_water()
 		@food = count_food()
 		@medication = count_medication()

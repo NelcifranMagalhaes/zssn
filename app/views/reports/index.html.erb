@@ -1,18 +1,59 @@
-<h2>Reports</h2>
+<h3>Reports</h3>
 
+<div class="section">
+<h3>Table of Count of Survivors</h3>
 
-	<h3>Percentage of infected survivors :</h3> 	<%= @survivors_i%> <p>
+<table class="striped responsive-table">
+	<body>
+		<tr>
+        	<td><strong>Number of survivors</strong></td>
 
-	<h3>Percentage of non-infected survivors :</h3>  <%= @survivors_ni %> <p>
+        	<td><%= @survivors_count %></td>
 
-	<h3>Average amount of each kind of resource by survivor:</h3>
-	<%=@water %> water for survivor<p>
-	<%=@food%> food for survivor<p>
-	<%=@medication%> medication for survivor<p>
-	<%=@ammunition%> ammunition for survivor<p>
+        </tr>
 
+        <tr>
+        	<td>Percentage of infected survivors</td>
+        	<td><%= @survivors_i%></td>
+        </tr>
+		
+         <tr>
+        	<td>Percentage of non-infected survivors</td>
+        	<td><%= @survivors_ni %></td>
+        </tr>
 
-
-
+	</body>	
+</table>
+</div>
 	
+<div class="divider"></div>
 
+<div class="section">
+<h3>Table of percentage iten/survivor</h3>
+<table class="striped responsive-table" >
+	<body>
+		<tr>
+        	<td><strong>Water for survivor</strong></td>
+
+        	<td><%=number_to_percentage(@water)%></td>
+
+        </tr>
+
+        <tr>
+        	<td>Food for survivor</td>
+        	<td><%=@food%></td>
+        </tr>
+		
+         <tr>
+        	<td>Medication for survivor</td>
+        	<td><%=@medication%> </td>
+        </tr>
+
+		<tr>
+        	<td>Ammunition for survivor</td>
+        	<td><%=@ammunition%> </td>
+        </tr>
+
+	</body>	
+</table>
+  </div>

@@ -93,7 +93,6 @@ class Trade < ApplicationRecord
 	    @survivor_two = Survivor.find_by(id: name_survivor_2)
 	    
     	if @survivor_one.present? && @survivor_two.present?		
-    		puts "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
 		    #o nome dos itens que vem da tela,eles veem com o id da tabela See
 		    @item_tela_1 = See.find_by(id: item_survivor_1)
 		    @item_tela_2 = See.find_by(id: item_survivor_2)

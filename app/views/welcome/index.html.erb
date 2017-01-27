@@ -1,6 +1,16 @@
-  	<%= link_to 'New Survivor', new_survivor_path %>/
-	<%= link_to 'Show',  survivors_path  %>/
-	<%= link_to 'trade',  new_trade_path  %>/
-	<%= link_to 'trade history', trades_path  %>/
-	 	<%= link_to 'Reports',  reports_path  %>/
- 
+  
+
+ <blockquote>
+      A game of survivors and zombies.
+    </blockquote>
+
+	<div class="collection">
+
+        <%= link_to 'New Survivor',new_survivor_path ,:class => "collection-item"%>
+		<%= link_to 'Show',  survivors_path ,:class => "collection-item" %>
+		<%= link_to 'trade',  new_trade_path ,:class => "collection-item" %>
+		<%= link_to 'trade history', trades_path ,:class => "collection-item" %>
+	 	<%= link_to 'Reports',  reports_path  ,:class => "collection-item"%>
+     </div>
+
+

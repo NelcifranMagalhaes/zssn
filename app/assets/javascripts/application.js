@@ -17,4 +17,4 @@
 //= require jquery_nested_form
 //= require chosen-jquery
 //= require choosenFeito
-
+//= require materialize-sprockets
