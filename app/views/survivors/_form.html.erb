@@ -1,4 +1,6 @@
-<%= form_for(survivor) do |f| %>
+
+ <div class="row">
+<%= form_for(survivor,html: {:class=>"col s12"} ) do |f| %>
   <% if survivor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survivor.errors.count, "error") %> prohibited this survivor from being saved:</h2>
@@ -11,60 +13,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="row">
+  <div class="input-field col s6">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s6">
     <%= f.label :age %>
     <%= f.number_field :age %>
   </div>
 
-  <div class="field">
+
+</div>
+
+<div class="row">
+  
+<div class="input-field col s2">
+    <%= f.label :infected %>
+    <%= f.check_box :infected %>
+
+</div>
+
+</div>
+
+<div class="row">
+
+  <div class="input-field col s6">
     <%= f.label :gender %>
     <%= f.text_field :gender %>
   </div>
 
-  <div class="field">
-    <%= f.label :infected %>
-    <%= f.check_box :infected %>
-  </div>
+
+<%= f.fields_for :location do |l| %>
 
 
-<h2>items</h2>
-
- <%= f.fields_for :items do |room_category| %>
-
-
- <div class="field">
-
- <%= room_category.label :name %><br>
-
- <%= room_category.text_field :name %>
-
- </div>
-
-
- <div class="field">
-
- <%= room_category.label :quant %><br>
-
- <%= room_category.text_field :quant %>
-
- </div>
-
-<%= room_category.check_box :_destroy %>
-<%= room_category.label :_destroy, 'remove' %>
-
-<% end %>
-
-<h2>Location</h2>
-
- <%= f.fields_for :location do |l| %>
-
-
- <div class="field">
+ <div class="input-field col s4">
 
  <%= l.label :latitude %><br>
 
@@ -72,7 +56,11 @@
 
  </div>
 
-<div class="field">
+</div>
+
+<div class="row">
+
+<div class="input-field col s6">
 
  <%= l.label :longitude %><br>
 
@@ -80,20 +68,74 @@
 
  </div>
 
+
+
+</div>
+
+</div>
+
+
+ 
+
+
+<div class="col s12"><h3>Items</h3></div>
+
+ <%= f.fields_for :items do |room_category| %>
+
+<div class="row">
+
+  <div class="input-field col s6">
+
+  <%= room_category.label :name %><br>
+
+  <%= room_category.text_field :name %>
+
+  </div>
+
+
+  <div class="input-field col s6">
+
+ <%= room_category.label :quant %><br>
+
+ <%= room_category.text_field :quant %>
+
+ </div>
+
+
+</div>
+
+
+
+<%= room_category.check_box :_destroy %>
+
+<%= room_category.label :_destroy, 'remove' %>
+
+<% end %>
+
+
+
+
 <%= l.check_box :_destroy %>
 <%= l.label :_destroy, 'remove' %>
 
 
 <% end %>
 
+  <div class="row">
+    <%= f.button :submit, :class => 'btn waves-effect waves-light ' %>
 
 
-  <div class="actions">
-    <%= f.submit %>
+  <%= link_to survivors_path do %>
+
+     <button class="waves-effect waves-light btn-large ">Back</button>
+
+  <% end %>
+
   </div>
+
+
 <% end %>
 
-
+</div>
 
  
-

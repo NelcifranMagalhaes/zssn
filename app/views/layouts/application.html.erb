@@ -9,16 +9,34 @@
   </head>
 
   <body>
-      <div class="container">
 
-    <div class="row">
-      <div class="col s12"><h1><%= link_to 'Home', root_path %></h1></div>
-        
-      <div class="col s6"> <%= yield %></div>
+    <div class="container">
+
+      <div class="row">
+        <nav>
+          <div class="nav-wrapper">
+
+            <div class="col s12"><%= link_to 'Zssn', root_path ,:class =>"brand-logo center"%></div>
+              
+          </div>
+        </nav>
+        <p>
+
+        <div class="col s6"> <%= yield %></div>
+
+      </div>
+
+      <footer class="page-footer">
+
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Copyright Text
+            </div>
+          </div>
+      </footer>
 
     </div>
 
-      </div>
   </body>
 
 </html>
